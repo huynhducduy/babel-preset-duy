@@ -6,6 +6,8 @@ var defaultOptions = {
   // vue: false,
   outside: false,
   typescript: true,
+  datefns: true,
+  ramda: true,
 }
 
 module.exports = (api, options) => {
@@ -22,6 +24,8 @@ module.exports = (api, options) => {
   var isTypescript = options.typescript === true
   var isReact = options.react === true
   var isWdyr = isReact && options.wdyr === true
+  var isDatefns = options.datefns === true
+  var isRamda = options.ramda === true
   // var isVue = options.vue === true
 
   return {
@@ -151,8 +155,8 @@ module.exports = (api, options) => {
         require.resolve('@babel/plugin-proposal-nullish-coalescing-operator'),
       !isOutside && require.resolve('@babel/plugin-proposal-optional-chaining'),
       // Libraries
-      !isOutside && require.resolve('babel-plugin-ramda'),
-      !isOutside && require.resolve('babel-plugin-date-fns-next'),
+      !isOutside && isRamda && require.resolve('babel-plugin-ramda'),
+      !isOutside && isDatefns && require.resolve('babel-plugin-date-fns-next'),
     ].filter(Boolean),
   }
 }
