@@ -37,7 +37,7 @@ module.exports = (api, options) => {
     isWdyr,
     isDatefns,
     isRamda
-  })
+  }))
 
   return {
     overrides: [
