@@ -11,15 +11,14 @@ var defaultOptions = {
 }
 
 module.exports = (api, options) => {
-  var isEnvProduction = api.env('production')
-  var isEnvDevelopment = api.env('development')
-  var isEnvTest = api.env('test')
-
   options = {
     ...defaultOptions,
     ...options,
   }
 
+  var isEnvProduction = api.env('production')
+  var isEnvDevelopment = api.env('development')
+  var isEnvTest = api.env('test')
   var isOutside = options.outside === true
   var isTypescript = options.typescript === true
   var isReact = options.react === true
@@ -27,6 +26,18 @@ module.exports = (api, options) => {
   var isDatefns = options.datefns === true
   var isRamda = options.ramda === true
   // var isVue = options.vue === true
+
+  api.cache(() => JSON.stringify({
+    isEnvProduction,
+    isEnvDevelopment,
+    isEnvTest,
+    isOutside,
+    isTypescript,
+    isReact,
+    isWdyr,
+    isDatefns,
+    isRamda
+  })
 
   return {
     overrides: [
