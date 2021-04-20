@@ -57,7 +57,7 @@ module.exports = (api, options) => {
           // Set the corejs version we are using to avoid warnings in console
           corejs: 3,
           // Exclude transforms that make all code slower
-          exclude: ['transform-typeof-symbol'], 
+          exclude: ['transform-typeof-symbol'],
         },
       ],
       !isOutside && isReact && [
@@ -70,7 +70,7 @@ module.exports = (api, options) => {
           importSource: isWdyr ? '@welldone-software/why-did-you-render' : undefined,
         },
       ],
-      !isOutside && isTypescript [
+      !isOutside && isTypescript && [
         require.resolve('@babel/preset-typescript'),
         {
           // TODO: to be added https://babeljs.io/docs/en/babel-preset-typescript
