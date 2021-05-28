@@ -133,7 +133,7 @@ module.exports = (api, options) => {
       ],
       // Optimization
       !isOutside &&
-        isEnvProduction && [
+        isEnvProduction && isReact && [
           // Remove PropTypes from production build
           require.resolve('babel-plugin-transform-react-remove-prop-types'),
           {
@@ -141,7 +141,7 @@ module.exports = (api, options) => {
           },
         ],
       !isOutside &&
-        isEnvProduction && [
+        isEnvProduction && isReact && [
           // Transform constant elements for production build
           require.resolve('babel-plugin-transform-react-constant-elements'),
         ],
