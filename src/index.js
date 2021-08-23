@@ -101,6 +101,12 @@ module.exports = (api, options) => {
       // class { handleClick = () => { } }
       // Enable loose mode to use assignment instead of defineProperty
       // See discussion in https://github.com/facebook/create-react-app/issues/4263
+      // Note:
+      // 'loose' mode configuration must be the same for
+      // * @babel/plugin-proposal-class-properties
+      // * @babel/plugin-proposal-private-methods
+      // * @babel/plugin-proposal-private-property-in-object
+      // (when they are enabled)
       !isOutside && [
         require.resolve('@babel/plugin-proposal-class-properties'),
         {
