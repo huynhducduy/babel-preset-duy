@@ -32,6 +32,7 @@ module.exports = () => {
           typescript: true,
           datefns: true, // turn on support for date-fns library
           ramda: true, // turn on support for ramda library
+          vanilla-extract: false, // turn on support for vanilla-extract library
         },
       ],
     ],
