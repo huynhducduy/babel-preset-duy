@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-duy",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Babel preset for duy's react-starter-kit and more..",
   "main": "src/index.js",
   "repository": "git@github.com:huynhducduy/babel-preset-duy.git",
