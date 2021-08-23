@@ -85,3 +85,5 @@ module.exports = () => {
 - [babel-plugin-date-fns-next](https://www.npmjs.com/package/babel-plugin-date-fns-next)
 
 - [babel-plugin-ramda](https://www.npmjs.com/package/babel-plugin-ramda)
+
+- [@vanilla-extract/babel-plugin](https://www.npmjs.com/package/@vanilla-extract/babel-plugin)
