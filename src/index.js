@@ -40,6 +40,11 @@ module.exports = (api, options) => {
   }))
 
   return {
+    // Babel assumes ES Modules, which isn't safe until CommonJS
+    // dies. This changes the behavior to assume CommonJS unless
+    // an `import` or `export` is present in the file.
+    // https://github.com/webpack/webpack/issues/4039#issuecomment-419284940
+    sourceType: 'unambiguous',
     overrides: [
       isTypescript && {
         test: /\.tsx?$/,
@@ -113,6 +118,18 @@ module.exports = (api, options) => {
           loose: true,
         },
       ],
+      !isOutside && [
+        require.resolve('@babel/plugin-proposal-private-methods'),
+        {
+          loose: true,
+        },
+      ],
+      !isOutside && [
+        require.resolve('@babel/plugin-proposal-private-property-in-object'),
+        {
+          loose: true,
+        },
+      ],
       // Polyfills the runtime needed for async/await, generators, and friends
       // https://babeljs.io/docs/en/babel-plugin-transform-runtime
       [
@@ -167,10 +184,6 @@ module.exports = (api, options) => {
       !isOutside &&
         require.resolve('@babel/plugin-proposal-logical-assignment-operators'),
       !isOutside && require.resolve('@babel/plugin-proposal-json-strings'),
-      // Stable but webpack 4 (with acorn 6) don't support https://github.com/webpack/webpack/issues/10227
-      !isOutside &&
-        require.resolve('@babel/plugin-proposal-nullish-coalescing-operator'),
-      !isOutside && require.resolve('@babel/plugin-proposal-optional-chaining'),
       // Libraries
       !isOutside && isRamda && require.resolve('babel-plugin-ramda'),
       !isOutside && isDatefns && require.resolve('babel-plugin-date-fns-next'),
