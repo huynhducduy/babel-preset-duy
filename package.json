@@ -26,7 +26,6 @@
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime": "^7.13.16",
-    "@vanilla-extract/babel-plugin": "^1.0.1",
     "babel-plugin-date-fns-next": "^1.0.0",
     "babel-plugin-ramda": "^2.0.0",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",

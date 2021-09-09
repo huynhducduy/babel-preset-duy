@@ -8,7 +8,6 @@ var defaultOptions = {
   typescript: true,
   datefns: true,
   ramda: true,
-  vanillaExtract: false,
 }
 
 module.exports = (api, options) => {
@@ -26,7 +25,6 @@ module.exports = (api, options) => {
   var isWdyr = isReact && options.wdyr === true
   var isDatefns = options.datefns === true
   var isRamda = options.ramda === true
-  var isVanillaExtract = options.vanillaExtract === true
   // var isVue = options.vue === true
 
   api.cache(() => JSON.stringify({
@@ -95,7 +93,6 @@ module.exports = (api, options) => {
       ],
     ].filter(Boolean),
     plugins: [
-      isVanillaExtract && require.resolve('@vanilla-extract/babel-plugin'),
       // Turn on legacy decorators for TypeScript files
       !isOutside && [
         require.resolve('@babel/plugin-proposal-decorators'),

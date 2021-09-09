@@ -32,7 +32,6 @@ module.exports = () => {
           typescript: true,
           datefns: true, // turn on support for date-fns library
           ramda: true, // turn on support for ramda library
-          vanillaExtract: false, // turn on support for vanilla-extract library
         },
       ],
     ],
@@ -85,5 +84,3 @@ module.exports = () => {
 - [babel-plugin-date-fns-next](https://www.npmjs.com/package/babel-plugin-date-fns-next)
 
 - [babel-plugin-ramda](https://www.npmjs.com/package/babel-plugin-ramda)
-
-- [@vanilla-extract/babel-plugin](https://www.npmjs.com/package/@vanilla-extract/babel-plugin)
